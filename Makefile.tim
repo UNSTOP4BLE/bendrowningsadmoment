@@ -1,0 +1,40 @@
+all: \
+	iso/menu/menu.arc \
+	iso/menu/loading.tim \
+	iso/font/boldfont.tim \
+	iso/font/arial.tim \
+	iso/stage/hud0.tim \
+	iso/stage/hud1.tim \
+	iso/bf/main.arc \
+	iso/bf/dead.arc \
+	iso/xmasp/main.arc \
+	iso/gft/main.arc \
+	iso/ben/main.arc \
+	iso/gf/main.arc \
+	iso/gf/speaker.tim \
+	iso/week4/back.arc \
+	iso/week4/hench.arc 
+
+iso/%.tim: iso/%.png
+	tools/funkintimconv/funkintimconv $@ $<
+
+iso/%.arc:
+	tools/funkinarcpak/funkinarcpak $@ $^
+
+# Menu
+iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim
+
+# BF
+iso/bf/main.arc: iso/bf/idle.tim iso/bf/hit0.tim iso/bf/miss0.tim iso/bf/hit1.tim iso/bf/miss1.tim iso/bf/peace.tim iso/bf/dead0.tim
+iso/bf/dead.arc: iso/bf/dead1.tim iso/bf/dead2.tim iso/bf/retry.tim
+
+# XMas Parents
+iso/xmasp/main.arc: iso/xmasp/idle0.tim iso/xmasp/idle1.tim iso/xmasp/idle2.tim iso/xmasp/idle3.tim iso/xmasp/lefta0.tim iso/xmasp/lefta1.tim iso/xmasp/leftb0.tim iso/xmasp/leftb1.tim iso/xmasp/downa0.tim iso/xmasp/downa1.tim iso/xmasp/downb0.tim iso/xmasp/downb1.tim iso/xmasp/upa0.tim iso/xmasp/upa1.tim iso/xmasp/upb0.tim iso/xmasp/upb1.tim iso/xmasp/righta0.tim iso/xmasp/righta1.tim iso/xmasp/rightb0.tim iso/xmasp/rightb1.tim
+
+iso/ben/main.arc: iso/ben/idle0.tim iso/ben/idle1.tim iso/ben/idle2.tim iso/ben/idle3.tim iso/ben/lefta0.tim iso/ben/lefta1.tim iso/ben/leftb0.tim iso/ben/leftb1.tim iso/ben/downa0.tim iso/ben/downa1.tim iso/ben/downb0.tim iso/ben/downb1.tim iso/ben/upa0.tim iso/ben/upa1.tim iso/ben/upb0.tim iso/ben/upb1.tim iso/ben/righta0.tim iso/ben/righta1.tim iso/ben/rightb0.tim iso/ben/rightb1.tim
+
+iso/gft/main.arc: iso/gft/idle0.tim iso/gft/idle1.tim iso/gft/idle2.tim iso/gft/idle3.tim iso/gft/idle4.tim iso/gft/idle5.tim iso/gft/idle6.tim iso/gft/idle7.tim iso/gft/idle8.tim iso/gft/idle9.tim iso/gft/idle10.tim iso/gft/idle11.tim
+
+# Week 4
+iso/week4/back.arc: iso/week4/back0.tim iso/week4/back1.tim iso/week4/back2.tim iso/week4/back3.tim
+iso/week4/hench.arc: iso/week4/hench0.tim iso/week4/hench1.tim
